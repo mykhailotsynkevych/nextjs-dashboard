@@ -21,12 +21,7 @@ export async function fetchRevenue() {
     // Artificially delay a reponse for demo purposes.
     // Don't do this in real life :)
 
-    console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
     const data = await sql<Revenue>`SELECT * FROM revenue`;
-
-    console.log('Data fetch complete after 1.5 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -48,7 +43,7 @@ export async function fetchLatestInvoices() {
       ORDER BY invoices.date DESC
       LIMIT 5`;
 
-      console.log('Data fetch complete after 3 seconds.');
+      console.log('Data fetch complete after 1 second.');
 
     const latestInvoices = data.rows.map((invoice) => ({
       ...invoice,
